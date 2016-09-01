@@ -1,8 +1,11 @@
 # BlockSlackbot
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/block_slackbot`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/fnordfish/block_slackbot.svg?branch=master)](https://travis-ci.org/fnordfish/block_slackbot)
 
-TODO: Delete this and the text above, and describe your gem
+BlockSlackbot is a [Rack](http://rack.rubyforge.org/) middleware that blocks [Slack](http://slack.com) crawlers which don't honor `robots.txt` files.
+It does so by identifiying the crawler by it's user agent string as defined in [Slack's API documentation](https://api.slack.com/robots).
+
+By default, BlockSlackbot will return with a `403` http status code and a body `Bad Robot`.
 
 ## Installation
 
@@ -22,7 +25,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In your rackup file:
+
+```ruby
+# config.ru
+
+use BlockSlackbot
+```
+
+In a Sinatra app:
+
+```ruby
+# my_app.rb
+
+class MyApp < Sinatra::Base
+  configure do
+    use BlockSlackbot
+```
+
+### Custom Response
+
+To change the blocking response, provide a Rack response array as an option like this:
+
+```ruby
+# Redirect somewhere:
+use BlockSlackbot, [302, { "Location" => "https://example.com" }, []]
+```
 
 ## Development
 
