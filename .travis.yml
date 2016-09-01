@@ -44,3 +44,7 @@ gemfile:
   - gemfiles/rack_1_3_x.gemfile
   - gemfiles/rack_1_6_x.gemfile
   - gemfiles/rack_2_0_x.gemfile
+
+addons:
+  code_climate:
+    repo_token: e2838e3d1990c8374751d6267300d349f20d019dbcf38daffafc58bd2ab765cc
