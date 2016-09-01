@@ -30,7 +30,8 @@ In your rackup file:
 ```ruby
 # config.ru
 
-use BlockSlackbot
+require 'rack/block_slackbot'
+use Rack::BlockSlackbot
 ```
 
 In a Sinatra app:
@@ -38,9 +39,10 @@ In a Sinatra app:
 ```ruby
 # my_app.rb
 
+require 'rack/block_slackbot'
 class MyApp < Sinatra::Base
   configure do
-    use BlockSlackbot
+    use Rack::BlockSlackbot
 ```
 
 ### Custom Response
@@ -49,7 +51,7 @@ To change the blocking response, provide a Rack response array as an option like
 
 ```ruby
 # Redirect somewhere:
-use BlockSlackbot, [302, { "Location" => "https://example.com" }, []]
+use Rack::BlockSlackbot, :response => [302, { "Location" => "https://example.com" }, []]
 ```
 
 ## Development
