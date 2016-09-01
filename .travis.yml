@@ -36,3 +36,8 @@ before_install: gem install bundler
 
 script:
   - bundle exec rspec
+
+gemfile:
+  - gemfiles/rack_1_3_x.gemfile
+  - gemfiles/rack_1_6_x.gemfile
+  - gemfiles/rack_2_0_x.gemfile
