@@ -5,5 +5,8 @@ gemspec
 
 group :development do
   gem "appraisal"
+end
+
+group :test do
   gem "codeclimate-test-reporter", require: nil
 end
