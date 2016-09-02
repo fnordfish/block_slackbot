@@ -17,12 +17,15 @@ addons:
     - g++-4.8
 
 rvm:
-  - 2.1.10
-  - 2.2.4
-  - 2.3.1
+  - 1.9.3
+  - 2.0
+  - 2.1
+  - 2.2
+  - 2.3
   - ruby-head
   - rbx
   - jruby
+  - jruby-9.1
   - jruby-head
 
 matrix:
@@ -32,7 +35,10 @@ matrix:
     - rvm: rbx
     # rack 2.0 requires Ruby version >= 2.2.2
     - gemfile: gemfiles/rack_2_0_x.gemfile
-      rvm: 2.1.10
+      rvm: 1.9.3
+      rvm: 2.0
+      rvm: 2.1
+      rvm: jruby
   fast_finish: true
 
 before_install: gem install bundler
