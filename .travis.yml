@@ -31,11 +31,13 @@ matrix:
     - rvm: ruby-head
     - rvm: jruby-head
     - rvm: rbx
+  exclude:
     # rack 2.0 requires Ruby version >= 2.2.2
-    - gemfile: gemfiles/rack_2_0_x.gemfile
-      rvm: 2.1.10
-    - gemfile: gemfiles/rack_2_0_x.gemfile
-      rvm: jruby-9
+    - rvm: 2.1.10
+      gemfile: gemfiles/rack_2_0_x.gemfile
+    - rvm: jruby-9
+      gemfile: gemfiles/rack_2_0_x.gemfile
+
   fast_finish: true
 
 before_install: gem install bundler
