@@ -23,6 +23,7 @@ rvm:
   - ruby-head
   - rbx
   - jruby-9
+  - jruby-9.1.0.0
   - jruby-head
 
 matrix:
@@ -33,6 +34,7 @@ matrix:
     # rack 2.0 requires Ruby version >= 2.2.2
     - gemfile: gemfiles/rack_2_0_x.gemfile
       rvm: 2.1.10
+      rvm: jruby-9
   fast_finish: true
 
 before_install: gem install bundler
