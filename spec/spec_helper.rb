@@ -1,7 +1,14 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+require "bundler/setup"
 
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+if ENV['COVERAGE'] == 'true'
+  require 'simplecov'
+  require 'simplecov_json_formatter'
+  SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
+  SimpleCov.start do
+    add_filter %r{^/spec/}
+  end
+end
+
 require 'rack/test'
 require 'rspec'
 require 'rspec/its'
@@ -13,4 +20,12 @@ Dir[File.expand_path("../{fixtures,support}/**/*.rb", __FILE__)].each { |f| requ
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = ".rspec_status"
+
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
+
+  config.formatter = config.files_to_run.size > 1 ? :progress : :documentation
 end

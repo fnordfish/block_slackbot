@@ -1,0 +1,37 @@
+name: Specs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["2.4", "2.5", "2.6", "2.7"]
+        experimental: [false]
+        include:
+        - ruby: "3.0"
+          experimental: false
+          coverage: "true"
+        # TODO: figure out why this breaks on CI
+        - ruby: "jruby"
+          experimental: true
+        - ruby: "truffleruby"
+          experimental: true
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{matrix.ruby}}
+        bundler-cache: true
+    - name: Install appraisals
+      run: ${{matrix.env}} bundle exec appraisal install
+    - name: Run tests
+      timeout-minutes: 5
+      run: ${{matrix.env}} bundle exec appraisal rspec
