@@ -1,10 +1,10 @@
 # BlockSlackbot
 
-[![Gem Version](https://img.shields.io/gem/v/block_slackbot.svg)][gem]
-[![Build Status](https://github.com/fnordfish/block_slackbot/actions/workflows/specs.yml/badge.svg)][ci]
+[![Gem Version](https://img.shields.io/gem/v/block_slackbot.svg)](https://rubygems.org/gems/block_slackbot)
+[![Build Status](https://github.com/fnordfish/block_slackbot/actions/workflows/specs.yml/badge.svg)](https://github.com/fnordfish/block_slackbot/actions/workflows/specs.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/22dc6638faec55a3fc36/maintainability)](https://codeclimate.com/github/fnordfish/block_slackbot/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/22dc6638faec55a3fc36/test_coverage)](https://codeclimate.com/github/fnordfish/block_slackbot/test_coverage)
-[![API Documentation Coverage](https://inch-ci.org/github/fnordfish/block_slackbot.svg?branch=master)][inch]
+[![API Documentation Coverage](https://inch-ci.org/github/fnordfish/block_slackbot.svg?branch=master)](https://inch-ci.org/github/fnordfish/block_slackbot)
 
 BlockSlackbot is a [Rack](http://rack.rubyforge.org/) middleware that blocks [Slack](http://slack.com) crawlers which don't honor `robots.txt` files.
 It does so by identifiying the crawler by it's user agent string as defined in [Slack's API documentation](https://api.slack.com/robots).
