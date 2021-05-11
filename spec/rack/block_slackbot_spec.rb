@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe "Rack::BlockSlackbot" do
+RSpec.describe "Rack::BlockSlackbot" do
   let(:app) { Rack::BlockSlackbot.new(DummyApp.new) }
 
   describe "Slackbot Link Expanding" do

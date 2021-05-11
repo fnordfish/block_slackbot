@@ -1,6 +1,10 @@
 # BlockSlackbot
 
-[![Build Status](https://travis-ci.org/fnordfish/block_slackbot.svg?branch=master)](https://travis-ci.org/fnordfish/block_slackbot) [![Code Climate](https://codeclimate.com/github/fnordfish/block_slackbot/badges/gpa.svg)](https://codeclimate.com/github/fnordfish/block_slackbot) [![Test Coverage](https://codeclimate.com/github/fnordfish/block_slackbot/badges/coverage.svg)](https://codeclimate.com/github/fnordfish/block_slackbot/coverage)
+[![Gem Version](https://img.shields.io/gem/v/block_slackbot.svg)][gem]
+[![Build Status](https://github.com/fnordfish/block_slackbot/actions/workflows/specs.yml/badge.svg)][ci]
+[![Maintainability](https://api.codeclimate.com/v1/badges/22dc6638faec55a3fc36/maintainability)](https://codeclimate.com/github/fnordfish/block_slackbot/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/22dc6638faec55a3fc36/test_coverage)](https://codeclimate.com/github/fnordfish/block_slackbot/test_coverage)
+[![API Documentation Coverage](https://inch-ci.org/github/fnordfish/block_slackbot.svg?branch=master)][inch]
 
 BlockSlackbot is a [Rack](http://rack.rubyforge.org/) middleware that blocks [Slack](http://slack.com) crawlers which don't honor `robots.txt` files.
 It does so by identifiying the crawler by it's user agent string as defined in [Slack's API documentation](https://api.slack.com/robots).

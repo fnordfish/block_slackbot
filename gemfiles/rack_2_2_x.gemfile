@@ -2,10 +2,14 @@
 
 source "https://rubygems.org"
 
-gem "rack", "~> 2.0.0"
+gem "rack", "~> 2.2.0"
 
 group :development do
   gem "appraisal"
 end
 
-gemspec :path => "../"
+group :test do
+  gem "simplecov", "~> 0.21.0", require: false
+end
+
+gemspec path: "../"

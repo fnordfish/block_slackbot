@@ -8,5 +8,5 @@ group :development do
 end
 
 group :test do
-  gem "codeclimate-test-reporter", require: nil
+  gem "simplecov", "~> 0.21.0", require: false if RUBY_VERSION >= '2.5'
 end
